@@ -100,6 +100,7 @@ http:
 | `rule/kr.yaml` | `ipcidr` | IP 段 | 1 |
 | `rule/lvsp-direct.yaml` | `domain` | 域名 | 7 |
 | `rule/lvsp-ip-check.yaml` | `domain` | 域名 | 6 |
+| `rule/local-process.yaml` | `classical` | 进程名 | 15 |
 | `rule/mail-password.yaml` | `domain` | 域名 | 4 |
 | `rule/mirror-accelerate.yaml` | `domain` | 域名 | 2 |
 | `rule/openai-extra.yaml` | `domain` | 域名 | 13 |

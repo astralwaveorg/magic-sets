@@ -1,0 +1,20 @@
+# 名称: local-process
+# behavior: classical
+# 条目: 15
+# 说明: 本地传输、同步与远控类进程，保持直连
+payload:
+  - PROCESS-NAME,qbittorrent
+  - PROCESS-NAME,qbittorrent.exe
+  - PROCESS-NAME,qBittorrent
+  - PROCESS-NAME,Transmission
+  - PROCESS-NAME,transmission-daemon
+  - PROCESS-NAME,transmission-qt.exe
+  - PROCESS-NAME,deluge
+  - PROCESS-NAME,deluged
+  - PROCESS-NAME,rtorrent
+  - PROCESS-NAME,syncthing
+  - PROCESS-NAME,syncthing.exe
+  - PROCESS-NAME,tailscaled
+  - PROCESS-NAME,Tailscale
+  - PROCESS-NAME,UURemote
+  - PROCESS-NAME,UURemoteServer
