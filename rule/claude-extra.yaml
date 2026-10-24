@@ -1,0 +1,16 @@
+# 名称: claude-extra
+# behavior: domain
+# 条目: 11
+# 说明: Claude 补充域名
+payload:
+  - +.anthropic.com
+  - +.claude.ai
+  - +.claude.com
+  - +.claudeusercontent.com
+  - +.claude.site
+  - +.claude.sites
+  - +.claudeartifacts.com
+  - +.claudeartifacts.cloud
+  - +.code.claude.com
+  - +.platform.claude.com
+  - +.servd-anthropic-website.b-cdn.net

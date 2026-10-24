@@ -1,0 +1,7 @@
+# 名称: mirror-accelerate
+# behavior: domain
+# 条目: 2
+# 说明: 镜像加速域名
+payload:
+  - +.233netcloud.com
+  - +.ghfast.top

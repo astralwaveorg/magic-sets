@@ -1,0 +1,16 @@
+# 名称: ua-apple
+# 说明: Apple 服务 UA（音乐/视频）
+# 注意: 默认停用。只对 Apple 系域名改写 UA，其它请求不动。
+# 适用引擎: stash
+
+script-providers:
+  ua-apple:
+    interval: 86400
+    payload: |
+      $request.headers["User-Agent"] = "AppleTV6,2/15.2";
+      $done();
+
+script:
+  - type: request
+    name: ua-apple
+    match: '^https?://[a-z0-9-]+\.(apple\.com|mzstatic\.com|icloud\.com)/'

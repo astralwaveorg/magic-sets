@@ -1,0 +1,15 @@
+# 名称: payment-finance
+# behavior: domain
+# 条目: 10
+# 说明: 支付与理财服务域名
+payload:
+  - +.paypal.com
+  - +.paypalobjects.com
+  - +.stripe.com
+  - +.stripe.network
+  - +.wise.com
+  - +.wise.jobs
+  - +.interactivebrokers.com
+  - +.ibkr.com
+  - +.schwab.com
+  - +.fidelity.com

@@ -1,0 +1,8 @@
+# 名称: direct-ports
+# behavior: classical
+# 条目: 3
+# 说明: 需直连的端口（classical）
+payload:
+  - DST-PORT,123
+  - DST-PORT,1900
+  - DST-PORT,5353

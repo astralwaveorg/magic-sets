@@ -1,0 +1,9 @@
+# 名称: dns-direct
+# behavior: domain
+# 条目: 4
+# 说明: 国内 DNS 直连域名
+payload:
+  - dns.alidns.com
+  - doh.pub
+  - dns.pub
+  - dot.pub

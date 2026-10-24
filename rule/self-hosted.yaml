@@ -1,0 +1,10 @@
+# 名称: self-hosted
+# behavior: domain
+# 条目: 5
+# 说明: 自建服务域名
+payload:
+  - +.magichub.top
+  - +.jiek.top
+  - +.homehub.stream
+  - +.eoysky.com
+  - +.astralwave.org

@@ -1,0 +1,9 @@
+# 名称: do-not-track
+# 说明: 隐私请求头（DNT）
+# 注意: 默认停用。给请求加上 Do Not Track 标头，并把 Referer 置空，减少被追踪。
+# 适用引擎: stash
+
+http:
+  header-rewrite:
+    - '^https?://.* request-add DNT 1'
+    - '^https?://.* request-del Referer'

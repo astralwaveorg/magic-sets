@@ -1,0 +1,18 @@
+# 名称: openai-extra
+# behavior: domain
+# 条目: 13
+# 说明: OpenAI / ChatGPT 补充域名
+payload:
+  - +.openai.com
+  - +.chatgpt.com
+  - +.oaistatic.com
+  - +.oaiusercontent.com
+  - +.openaiassets.com
+  - +.chat.com
+  - +.openaiapi-site.azureedge.net
+  - +.openaicom.imgix.net
+  - +.production-openaicom-storage.azureedge.net
+  - +.openaiassets.blob.core.windows.net
+  - +.chatgpt.livekit.cloud
+  - +.host.livekit.cloud
+  - +.turn.livekit.cloud

@@ -1,0 +1,14 @@
+# 名称: ad-block
+# 说明: 常见广告域名拦截
+# 注意: 默认停用。按 URL 正则拒绝常见广告与统计请求；命中即返回 404，不影响正常请求。
+# 适用引擎: stash
+
+http:
+  url-rewrite:
+    - '^https?://[a-z0-9-]+\.doubleclick\.net/.* - reject'
+    - '^https?://[a-z0-9-]+\.googlesyndication\.com/.* - reject'
+    - '^https?://[a-z0-9-]+\.googleadservices\.com/.* - reject'
+    - '^https?://[a-z0-9-]+\.adservice\.google\.com/.* - reject'
+    - '^https?://[a-z0-9-]+\.amazon-adsystem\.com/.* - reject'
+    - '^https?://[a-z0-9-]+\.scorecardresearch\.com/.* - reject'
+    - '^https?://[a-z0-9-]+\.ads-twitter\.com/.* - reject'

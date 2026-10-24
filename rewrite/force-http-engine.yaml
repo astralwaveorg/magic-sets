@@ -1,0 +1,8 @@
+# 名称: force-http-engine
+# 说明: 强制 HTTP 引擎（80 端口）
+# 注意: 默认停用。让 80 端口的连接走 HTTP 引擎，才能对其做重写；部分 App 需要。
+# 适用引擎: stash
+
+http:
+  force-http-engine:
+    - "*:80"

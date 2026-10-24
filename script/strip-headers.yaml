@@ -1,0 +1,18 @@
+# 名称: strip-headers
+# 说明: 请求头去跟踪
+# 注意: 默认停用。删掉 X-Client-*、X-Request-ID 之类的自有请求头，减少被跟踪。
+# 适用引擎: stash
+
+script-providers:
+  strip-headers:
+    interval: 86400
+    payload: |
+      $request.headers["X-Client-Version"] = undefined;
+      $request.headers["X-Request-ID"] = undefined;
+      $request.headers["X-Device-Id"] = undefined;
+      $done();
+
+script:
+  - type: request
+    name: strip-headers
+    match: "^https?://"
