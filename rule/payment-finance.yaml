@@ -1,10 +1,8 @@
 # 名称: payment-finance
 # behavior: domain
-# 条目: 10
-# 说明: 支付与理财服务域名
+# 条目: 8
+# 说明: 支付与理财服务域名（PayPal 另用 blackmatrix7 的 PayPal 集合，条目更全）
 payload:
-  - +.paypal.com
-  - +.paypalobjects.com
   - +.stripe.com
   - +.stripe.network
   - +.wise.com

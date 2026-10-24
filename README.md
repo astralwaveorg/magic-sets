@@ -100,10 +100,10 @@ http:
 | `rule/kr.yaml` | `ipcidr` | IP 段 | 1 |
 | `rule/lvsp-direct.yaml` | `domain` | 域名 | 7 |
 | `rule/lvsp-ip-check.yaml` | `domain` | 域名 | 6 |
-| `rule/mail-password.yaml` | `domain` | 域名 | 9 |
+| `rule/mail-password.yaml` | `domain` | 域名 | 4 |
 | `rule/mirror-accelerate.yaml` | `domain` | 域名 | 2 |
 | `rule/openai-extra.yaml` | `domain` | 域名 | 13 |
-| `rule/payment-finance.yaml` | `domain` | 域名 | 10 |
+| `rule/payment-finance.yaml` | `domain` | 域名 | 8 |
 | `rule/proxy.yaml` | `classical` | 经典规则 | 100 |
 | `rule/proxy-domain.yaml` | `domain` | 域名 | 6207 |
 | `rule/search.yaml` | `domain` | 域名 | 17 |
