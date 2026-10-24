@@ -1,0 +1,14 @@
+# 名称: jp-kr
+# behavior: classical
+# 条目: 9
+# 说明: 日韩服务域名与 IP 段（原 jp-kr-services / jp-kr-services-ip 合并）
+payload:
+  - DOMAIN-SUFFIX,panel.eoysky.com
+  - DOMAIN-SUFFIX,bot.eoysky.com
+  - DOMAIN-SUFFIX,cookie.astralwave.vip
+  - DOMAIN-SUFFIX,sub.rsshub.in
+  - DOMAIN-SUFFIX,ql.astralwave.vip
+  - DOMAIN-SUFFIX,rsshub.in
+  - DOMAIN-SUFFIX,dilyslyu.com
+  - DOMAIN-SUFFIX,oapi.dnscli.top
+  - IP-CIDR,158.179.167.131/32

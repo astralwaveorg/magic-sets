@@ -1,6 +1,0 @@
-# 名称: jp-kr-services-ip
-# behavior: ipcidr
-# 条目: 1
-# 说明: 日韩服务 IP 段
-payload:
-  - 158.179.167.131/32
