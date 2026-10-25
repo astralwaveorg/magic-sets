@@ -1,6 +1,6 @@
 # 名称: jp
 # behavior: domain
-# 条目: 8
+# 条目: 9
 # 说明: 日本相关域名，走日本线路（韩国的 IP 段走默认代理，单独一条规则）
 payload:
   - +.panel.eoysky.com

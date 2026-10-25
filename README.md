@@ -97,7 +97,7 @@ http:
 | `rule/direct-ports.yaml` | `classical` | 经典规则 | 3 |
 | `rule/dns-direct.yaml` | `domain` | 域名 | 4 |
 | `rule/gemini.yaml` | `domain` | 域名 | 13 |
-| `rule/jp.yaml` | `domain` | 域名 | 8 |
+| `rule/jp.yaml` | `domain` | 域名 | 9 |
 | `rule/kr.yaml` | `ipcidr` | IP 段 | 1 |
 | `rule/local-process.yaml` | `classical` | 经典规则 | 15 |
 | `rule/lvsp-direct.yaml` | `domain` | 域名 | 7 |
