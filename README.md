@@ -15,8 +15,8 @@
 
 ## rule/
 
-本仓库的集合**一律用 `classical` 行为**：条目少，但类型可以混着写，域名、IP 段、进程名
-放在一个文件里，配一个规则就能表达一整类分流意图。
+本仓库的集合**一律用 `classical` 行为**（`magic-us` 除外，用 `domain`）：条目少，但类型可以混着写，
+域名、IP 段、进程名放在一个文件里，配一个规则就能表达一整类分流意图。
 
 ```yaml
 # 名称: jp
@@ -45,12 +45,12 @@ payload:
 
 ```yaml
 rule-providers:
-  jp:
+  magic-jp:
     type: http
     behavior: classical
     format: yaml
-    path: ./rules/jp.yaml
-    url: https://raw.githubusercontent.com/astralwaveorg/magic-sets/main/rule/jp.yaml
+    path: ./rules/magic-jp.yaml
+    url: https://raw.githubusercontent.com/astralwaveorg/magic-sets/main/rule/magic-jp.yaml
     interval: 86400
 ```
 
@@ -88,23 +88,28 @@ http:
 
 | 文件 | 说明 | 条目 | 规则指向 |
 | --- | --- | --- | --- |
-| `rule/proxy.yaml` | 自维护的「走默认代理」条目 | 6 | `🚀 默认代理` |
-| `rule/direct.yaml` | 自维护的「直连」条目 | 5 | `DIRECT` |
-| `rule/reject.yaml` | 自维护的「拦截」条目 | 4 | `REJECT` / `🛑 广告过滤` |
-| `rule/jp.yaml` | 日本线路域名 + 韩国的固定 IP 段 | 10 | `🇯🇵日本` |
-| `rule/process.yaml` | 本地传输、同步与远控类进程 | 15 | `DIRECT` |
-| `rule/chat-ext.yaml` | 即时通讯补充域名 | 43 | `💬 即时通讯` |
-| `rule/social-ext.yaml` | 海外社交补充域名 | 16 | `👥 海外社交` |
+| `rule/magic-proxy.yaml` | 自维护的「走默认代理」条目 | 6 | `🚀 默认代理` |
+| `rule/magic-direct.yaml` | 自维护的「直连」条目 | 7 | `DIRECT` |
+| `rule/magic-reject.yaml` | 自维护的「拦截」条目 | 4 | `REJECT` / `🛑 广告过滤` |
+| `rule/magic-jp.yaml` | 日本线路域名 + 韩国的固定 IP 段 | 10 | `🇯🇵日本` |
+| `rule/magic-process.yaml` | 本地传输、同步与远控类进程 | 15 | `DIRECT` |
+| `rule/magic-chat.yaml` | 即时通讯补充域名 | 43 | `💬 即时通讯` |
+| `rule/magic-social.yaml` | 海外社交补充域名 | 16 | `👥 海外社交` |
+| `rule/magic-game.yaml` | Steam 下载 CDN（服务器在境外） | 2 | `🎮 海外游戏` |
+| `rule/magic-us.yaml` | 美国区域域名 | 2 | `🇺🇸美国` |
+| `rule/magic-google.yaml` | 谷歌服务补充域名 | 1 | `🔍 谷歌服务` |
+| `rule/magic-microsoft.yaml` | 微软服务补充域名 | 1 | `Ⓜ️ 微软服务` |
 
-三类意图集合（`proxy` / `direct` / `reject`）是自维护条目的固定落点：想加一条「这个域名走
-默认代理」「这个域名直连」「这个域名拦截」，加到对应文件里就行，不必为每个服务单独建集合。
+**一个目标组一个文件**：想加一条「这个域名走默认代理」「这个域名直连」「这个域名拦截」，
+加到对应文件里就行，不必为每个服务单独建集合。`magic-proxy` / `magic-direct` / `magic-reject`
+是三种通用意图的固定落点，其余按分组各一个文件。
 
 通用规则集（geosite / geoip / blackmatrix7 的分类集合）一律不进本仓库 —— 面板里直接引用
 上游 URL 即可，避免同一份内容存两处、走两套更新。
 
 ## 命名约定
 
-- 文件名用小写英文加短横线；文件即引用键，改名要同步改引用它的规则
+- 文件名用小写英文加短横线，**一律带 `magic-` 前缀**（表示自维护）；文件即引用键，改名要同步改引用它的规则
 - 中文展示名写在文件头的注释里，不进文件名，避免 URL 里的百分号编码
 - 新增条目追加到对应文件末尾，保持原有排序习惯，不要重排既有内容
 
