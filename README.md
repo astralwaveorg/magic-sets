@@ -15,40 +15,44 @@
 
 ## rule/
 
-每个文件是一个标准规则集合，文件头注明 behavior、条目数与用途：
+本仓库的集合**一律用 `classical` 行为**：条目少，但类型可以混着写，域名、IP 段、进程名
+放在一个文件里，配一个规则就能表达一整类分流意图。
 
 ```yaml
-# 名称: chat-extra
-# behavior: domain
-# 条目: 43
-# 说明: 即时通讯补充域名
+# 名称: jp
+# behavior: classical
+# 条目: 10
+# 说明: 日本线路的域名与韩国的固定 IP 段
 payload:
-  - +.example.com
+  - DOMAIN-SUFFIX,rsshub.in
+  - IP-CIDR,158.179.167.131/32
 ```
 
-`behavior` 三种，与 [Stash 官方文档](https://stash.wiki/rules/rule-set) 一致：
+`classical` 里能写的类型，与 [Stash 官方文档](https://stash.wiki/rules/rule-types) 一致：
 
-| behavior | 支持内容 | 写法 |
-| --- | --- | --- |
-| `domain` | 域名 / 域名通配符 | `+.example.com` 匹配该域及其子域，`example.com` 精确匹配 |
-| `ipcidr` | IPv4 / IPv6 CIDR | `158.179.167.131/32` |
-| `classical` | 任意规则类型 | `DOMAIN-KEYWORD,abema`、`DST-PORT,123` |
+| 写法 | 含义 |
+| --- | --- |
+| `DOMAIN,example.com` | 精确匹配这一个域名 |
+| `DOMAIN-SUFFIX,example.com` | 该域及其全部子域 |
+| `DOMAIN-KEYWORD,abema` | 域名里含这个关键词 |
+| `IP-CIDR,158.179.167.131/32` | IPv4 / IPv6 网段 |
+| `PROCESS-NAME,qbittorrent` | 进程名 |
+
+注意 `DOMAIN` 与 `DOMAIN-SUFFIX` 的区别：原来 `domain` 行为里不带 `+.` 的是精确匹配，
+换成 `classical` 时要写成 `DOMAIN,`，写成 `DOMAIN-SUFFIX,` 会把整个域和子域都算进去。
 
 引用方式：
 
 ```yaml
 rule-providers:
-  chat-extra:
+  jp:
     type: http
-    behavior: domain
+    behavior: classical
     format: yaml
-    path: ./rules/chat-extra.yaml
-    url: https://raw.githubusercontent.com/astralwaveorg/magic-sets/main/rule/chat-extra.yaml
+    path: ./rules/jp.yaml
+    url: https://raw.githubusercontent.com/astralwaveorg/magic-sets/main/rule/jp.yaml
     interval: 86400
 ```
-
-`format` 用 `yaml`。Stash 对 `domain` / `ipcidr` 的 `mrs` 二进制格式做了专门压缩优化，
-条目数很大时内存更省；本仓库条目量级不大，统一用 `yaml` 便于维护与审阅。
 
 ## script/ 与 rewrite/
 
@@ -82,35 +86,34 @@ http:
 
 ## 规则清单
 
-| 文件 | behavior | 内容 | 条目 |
+| 文件 | 说明 | 条目 | 规则指向 |
 | --- | --- | --- | --- |
-| `rule/chat-extra.yaml` | `domain` | 域名 | 43 |
-| `rule/jp.yaml` | `domain` | 域名 | 9 |
-| `rule/kr.yaml` | `ipcidr` | IP 段 | 1 |
-| `rule/local-process.yaml` | `classical` | 经典规则 | 15 |
-| `rule/social-niche.yaml` | `domain` | 域名 | 16 |
+| `rule/proxy.yaml` | 自维护的「走默认代理」条目 | 6 | `🚀 默认代理` |
+| `rule/direct.yaml` | 自维护的「直连」条目 | 5 | `DIRECT` |
+| `rule/reject.yaml` | 自维护的「拦截」条目 | 4 | `REJECT` / `🛑 广告过滤` |
+| `rule/jp.yaml` | 日本线路域名 + 韩国的固定 IP 段 | 10 | `🇯🇵日本` |
+| `rule/process.yaml` | 本地传输、同步与远控类进程 | 15 | `DIRECT` |
+| `rule/chat-ext.yaml` | 即时通讯补充域名 | 43 | `💬 即时通讯` |
+| `rule/social-ext.yaml` | 海外社交补充域名 | 16 | `👥 海外社交` |
 
-本仓库只收**上游与第三方都没有收录、需要自己维护**的集合：
-
-- `chat-extra` / `social-niche`：小众聊天应用与社区平台的补充域名
-- `local-process`：本地传输、同步与远控类进程，保持直连
-- `jp` / `kr`：自建服务所在地区的域名与 IP 段
+三类意图集合（`proxy` / `direct` / `reject`）是自维护条目的固定落点：想加一条「这个域名走
+默认代理」「这个域名直连」「这个域名拦截」，加到对应文件里就行，不必为每个服务单独建集合。
 
 通用规则集（geosite / geoip / blackmatrix7 的分类集合）一律不进本仓库 —— 面板里直接引用
 上游 URL 即可，避免同一份内容存两处、走两套更新。
 
 ## 命名约定
 
-- 文件名用小写英文加短横线；IP 段的加 `-ip` 后缀（`apple-push` / `apple-push-ip`）
+- 文件名用小写英文加短横线；文件即引用键，改名要同步改引用它的规则
 - 中文展示名写在文件头的注释里，不进文件名，避免 URL 里的百分号编码
 - 新增条目追加到对应文件末尾，保持原有排序习惯，不要重排既有内容
 
 ## 与 MagicPanel 的关系
 
 本仓库由 MagicPanel 后台的「自主维护」页托管：面板把它 clone 到容器里，在页面上直接浏览、
-编辑、提交、推送。`rule/` 下的文件会按「仓库托管」这一类规则来源同步进面板，内容以仓库为准。
+编辑、提交、推送。`rule/` 下的文件会按「维护仓库」这一类规则来源同步进面板，内容以仓库为准。
 
-面板里的规则来源有四种，边界要分清：
+面板里的规则来源有三种，边界要分清：
 
 | 类型 | 含义 | 内容来源 |
 | --- | --- | --- |
