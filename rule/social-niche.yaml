@@ -1,0 +1,29 @@
+# 名称: social-niche
+# behavior: domain
+# 条目: 16
+# 说明: 海外社交补充域名——blackmatrix7 与 geosite 都没有收录的小众社区平台。
+payload:
+  # —— Quora ——
+  - +.quora.com
+  # —— Lemmy ——
+  - +.lemmy.world
+  - +.lemmy.ml
+  - +.lemmyonline.com
+  # —— Nextdoor ——
+  - +.nextdoor.com
+  # —— Odnoklassniki ——
+  - +.ok.ru
+  - +.odnoklassniki.ru
+  # —— GETTR ——
+  - +.gettr.com
+  - +.gettr.net
+  - +.gettr.cc
+  - +.gettr.io
+  # —— Minds ——
+  - +.minds.com
+  - +.minds.net
+  # —— MeWe ——
+  - +.mewe.com
+  # —— Gab ——
+  - +.gab.com
+  - +.gab.ai

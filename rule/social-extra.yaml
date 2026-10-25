@@ -1,48 +1,25 @@
 # 名称: social-extra
 # behavior: domain
-# 条目: 43
-# 说明: 社交通讯补充域名
+# 条目: 14
+# 说明: 海外社交补充域名。原先这里混着 Discord / WhatsApp / Signal / LINE /
+#       Kakao / Messenger 等通讯类域名，拆分后移到 chat-extra 集合。
 payload:
-  - +.discord.com
-  - +.discord.gg
-  - +.discordapp.com
-  - +.discordapp.net
-  - +.discord.media
-  - +.discordcdn.com
-  - +.whatsapp.com
-  - +.whatsapp.net
-  - +.signal.org
-  - +.signal.art
-  - +.signal.group
-  - +.signal.link
-  - +.signal.me
-  - +.signal.tube
-  - +.line.me
-  - +.line-apps.com
-  - +.line-scdn.net
-  - +.line.naver.jp
-  - +.kakao.com
-  - +.kakaocdn.net
-  - +.messenger.com
+  # —— Facebook ——
   - +.fb.com
   - +.fb.me
   - +.fbcdn.net
+  # —— Threads ——
   - +.threads.net
   - +.threads.com
+  # —— Instagram ——
   - +.instagram.com
   - +.cdninstagram.com
+  # —— Reddit ——
   - +.reddit.com
   - +.redd.it
   - +.redditmedia.com
   - +.redditstatic.com
+  # —— Snapchat ——
   - +.snapchat.com
   - +.snap.com
   - +.sc-cdn.net
-  - +.viber.com
-  - +.vibercdn.com
-  - +.zoom.us
-  - +.zoom.com
-  - +.zoomcdn.net
-  - +.webex.com
-  - +.slack.com
-  - +.slack-edge.com
