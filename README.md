@@ -88,7 +88,7 @@ http:
 
 | 文件 | 说明 | 条目 | 规则指向 |
 | --- | --- | --- | --- |
-| `rule/magic-proxy.yaml` | 自维护的「走默认代理」条目 | 6 | `🚀 默认代理` |
+| `rule/magic-proxy.yaml` | 自维护的「走默认代理」条目（IP 查询、云服务、自建、金融） | 16 | `🚀 默认代理` |
 | `rule/magic-direct.yaml` | 自维护的「直连」条目 | 7 | `DIRECT` |
 | `rule/magic-reject.yaml` | 自维护的「拦截」条目 | 4 | `REJECT` / `🛑 广告过滤` |
 | `rule/magic-jp.yaml` | 日本线路域名 + 韩国的固定 IP 段 | 10 | `🇯🇵日本` |
@@ -99,6 +99,8 @@ http:
 | `rule/magic-us.yaml` | 美国区域域名 | 2 | `🇺🇸美国` |
 | `rule/magic-google.yaml` | 谷歌服务补充域名 | 1 | `🔍 谷歌服务` |
 | `rule/magic-microsoft.yaml` | 微软服务补充域名 | 1 | `Ⓜ️ 微软服务` |
+| `rule/magic-adult.yaml` | 成人内容站点域名 | 9 | `🚀 默认代理` |
+| `rule/magic-dev.yaml` | 开发者平台、工具与包源域名 | 34 | `🚀 默认代理` |
 
 **一个目标组一个文件**：想加一条「这个域名走默认代理」「这个域名直连」「这个域名拦截」，
 加到对应文件里就行，不必为每个服务单独建集合。`magic-proxy` / `magic-direct` / `magic-reject`
