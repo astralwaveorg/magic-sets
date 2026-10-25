@@ -1,22 +1,24 @@
 # 名称: proxy
 # behavior: classical
-# 条目: 6
-# 说明: 自维护的「走默认代理」条目——IP 查询服务域名
+# 条目: 16
+# 说明: 自维护的「走默认代理」条目——IP 查询、云服务、自建与金融站点
 payload:
+  # —— IP 查询服务 ——
   - DOMAIN-SUFFIX,myip.com
   - DOMAIN-SUFFIX,ipip.net
   - DOMAIN-SUFFIX,ipinfo.io
   - DOMAIN-SUFFIX,ip-api.com
   - DOMAIN-SUFFIX,whatismyip.com
   - DOMAIN-SUFFIX,cdnimg118574.com
-  - DOMAIN-KEYWORD,greasyfork
-  - DOMAIN-KEYWORD,sleazyfork
-  - DOMAIN-KEYWORD,nodeseek
+  # —— 金融与行情 ——
+  - DOMAIN-SUFFIX,tradingview.com
+  - DOMAIN-SUFFIX,longbridge.com
   - DOMAIN-KEYWORD,longbridge
-  - DOMAIN-KEYWORD,shadcn
-  - DOMAIN-KEYWORD,recharts
-  - DOMAIN-KEYWORD,ipv6boy
-  - DOMAIN-KEYWORD,v2ex
-  - DOMAIN-KEYWORD,discord
-  - DOMAIN-KEYWORD,wmsxwd
-  - DOMAIN-KEYWORD,missav
+  # —— 自建与第三方服务 ——
+  - DOMAIN-SUFFIX,xn--9kqz23b19z.com
+  - DOMAIN-SUFFIX,liangxin.xyz
+  - DOMAIN,app.smartmailcloud.com
+  - IP-CIDR,130.211.33.145/32
+  - DOMAIN,web.dev
+  - DOMAIN-SUFFIX,warp.dev
+  - DOMAIN-SUFFIX,rudderstack.com

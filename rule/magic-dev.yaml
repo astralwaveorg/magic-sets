@@ -1,0 +1,42 @@
+# 名称: dev
+# behavior: classical
+# 条目: 34
+# 说明: 开发者平台、工具与包源域名
+payload:
+  # —— 开发者社区与工具 ——
+  - DOMAIN-SUFFIX,imgur.com
+  - DOMAIN-SUFFIX,sentry.io
+  - DOMAIN,giscus.app
+  - DOMAIN-KEYWORD,greasyfork
+  - DOMAIN-KEYWORD,sleazyfork
+  - DOMAIN-KEYWORD,nodeseek
+  - DOMAIN,userstyles.org
+  - DOMAIN-SUFFIX,brave.com
+  - DOMAIN-SUFFIX,formulae.brew.sh
+  # —— 平台与工具站 ——
+  - DOMAIN-SUFFIX,zoom.us
+  - DOMAIN-SUFFIX,huggingface.co
+  - DOMAIN-SUFFIX,ant.design
+  - DOMAIN-SUFFIX,rsshub.app
+  - DOMAIN-SUFFIX,openvpn.net
+  - DOMAIN-SUFFIX,gravatar.com
+  - DOMAIN-SUFFIX,dev.to
+  - DOMAIN-SUFFIX,gitbook.io
+  - DOMAIN-SUFFIX,gitbook.com
+  - DOMAIN,web.archive.org
+  - DOMAIN,jsfiddle.net
+  - DOMAIN-SUFFIX,jshell.net
+  - DOMAIN-SUFFIX,leetcode.com
+  - DOMAIN-SUFFIX,codementor.io
+  - DOMAIN-KEYWORD,wmsxwd
+  - DOMAIN-SUFFIX,apkpure.com
+  - DOMAIN-SUFFIX,figma.com
+  - DOMAIN-SUFFIX,datadoghq.com
+  - DOMAIN-SUFFIX,wikipedia.org
+  # —— 包源与镜像 ——
+  - DOMAIN-SUFFIX,nodejs.org
+  - DOMAIN-SUFFIX,pypi.org
+  - DOMAIN-SUFFIX,files.pythonhosted.org
+  - DOMAIN-SUFFIX,crates.io
+  - DOMAIN-SUFFIX,pkg.go.dev
+  - DOMAIN-SUFFIX,deb.debian.org

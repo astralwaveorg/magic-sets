@@ -1,0 +1,14 @@
+# 名称: adult
+# behavior: classical
+# 条目: 9
+# 说明: 成人内容站点域名
+payload:
+  - DOMAIN-SUFFIX,supjav.com
+  - DOMAIN-SUFFIX,supremejav.com
+  - DOMAIN-SUFFIX,pornhub.com
+  - DOMAIN-SUFFIX,phncdn.com
+  - DOMAIN-KEYWORD,missav
+  - DOMAIN-SUFFIX,xvideos.com
+  - DOMAIN-SUFFIX,javdb.com
+  - DOMAIN-SUFFIX,mushroomtrack.com
+  - DOMAIN-SUFFIX,jable.tv
