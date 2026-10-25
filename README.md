@@ -91,7 +91,7 @@ http:
 | `rule/apple-push.yaml` | `domain` | 域名 | 3 |
 | `rule/chat-extra.yaml` | `domain` | 域名 | 43 |
 | `rule/claude-extra.yaml` | `domain` | 域名 | 11 |
-| `rule/cn-services.yaml` | `domain` | 域名 | 236 |
+| `rule/cn-services.yaml` | `domain` | 域名 | 31 |
 | `rule/connectivity-check.yaml` | `domain` | 域名 | 6 |
 | `rule/dev-extra.yaml` | `domain` | 域名 | 71 |
 | `rule/direct-ports.yaml` | `classical` | 经典规则 | 3 |
