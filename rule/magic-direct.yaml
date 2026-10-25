@@ -1,7 +1,7 @@
 # 名称: direct
 # behavior: classical
-# 条目: 7
-# 说明: 自维护的「直连」条目——自建服务域名与国内直连站点
+# 条目: 10
+# 说明: 自维护的「直连」条目——自建服务域名、国内直连站点与必须直连的广告 SDK 域名
 payload:
   - DOMAIN-SUFFIX,magichub.top
   - DOMAIN-SUFFIX,jiek.top
@@ -10,3 +10,6 @@ payload:
   - DOMAIN-SUFFIX,astralwave.org
   - DOMAIN-SUFFIX,jianpian.tv
   - DOMAIN,cn.bing.com
+  - DOMAIN-SUFFIX,alimama.com
+  - DOMAIN-SUFFIX,snssdk.com
+  - DOMAIN-SUFFIX,tanx.com
