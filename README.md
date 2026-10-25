@@ -87,8 +87,9 @@ http:
 | `rule/ads-minimal.yaml` | `domain` | 域名 | 4 |
 | `rule/ai-overrides.yaml` | `domain` | 域名 | 47 |
 | `rule/apple-intelligence.yaml` | `domain` | 域名 | 4 |
-| `rule/apple-push.yaml` | `domain` | 域名 | 3 |
 | `rule/apple-push-ip.yaml` | `ipcidr` | IP 段 | 9 |
+| `rule/apple-push.yaml` | `domain` | 域名 | 3 |
+| `rule/chat-extra.yaml` | `domain` | 域名 | 43 |
 | `rule/claude-extra.yaml` | `domain` | 域名 | 11 |
 | `rule/cn-services.yaml` | `domain` | 域名 | 236 |
 | `rule/connectivity-check.yaml` | `domain` | 域名 | 6 |
@@ -98,18 +99,19 @@ http:
 | `rule/gemini.yaml` | `domain` | 域名 | 13 |
 | `rule/jp.yaml` | `domain` | 域名 | 8 |
 | `rule/kr.yaml` | `ipcidr` | IP 段 | 1 |
+| `rule/local-process.yaml` | `classical` | 经典规则 | 15 |
 | `rule/lvsp-direct.yaml` | `domain` | 域名 | 7 |
 | `rule/lvsp-ip-check.yaml` | `domain` | 域名 | 6 |
-| `rule/local-process.yaml` | `classical` | 进程名 | 15 |
 | `rule/mail-password.yaml` | `domain` | 域名 | 4 |
 | `rule/mirror-accelerate.yaml` | `domain` | 域名 | 2 |
 | `rule/openai-extra.yaml` | `domain` | 域名 | 13 |
 | `rule/payment-finance.yaml` | `domain` | 域名 | 8 |
-| `rule/proxy.yaml` | `classical` | 经典规则 | 100 |
 | `rule/proxy-domain.yaml` | `domain` | 域名 | 6207 |
+| `rule/proxy.yaml` | `classical` | 经典规则 | 100 |
 | `rule/search.yaml` | `domain` | 域名 | 17 |
 | `rule/self-hosted.yaml` | `domain` | 域名 | 5 |
-| `rule/social-extra.yaml` | `domain` | 域名 | 43 |
+| `rule/social-extra.yaml` | `domain` | 域名 | 14 |
+| `rule/social-niche.yaml` | `domain` | 域名 | 16 |
 
 `rule/proxy-domain.yaml` 是「必须走代理」的域名全集，已剔除与现有分流规则重叠的部分 ——
 上游的 Proxy 规则集排在业务规则之前，会把本该走专用线路的域名抢走。
