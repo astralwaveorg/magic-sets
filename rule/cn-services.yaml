@@ -1,38 +1,13 @@
 # 名称: cn-services
 # behavior: domain
-# 条目: 31
-# 说明: 国内大厂与公共服务域名（走代理的国内例外）
-# 维护: 只保留 geosite/ai-cn 等上游集合未覆盖、且实测必须直连的条目；
-#       国内服务的国际版与境外节点不放在这里（直连必然超时），交由兜底走代理。
+# 条目: 4
+# 说明: 只留「别处不覆盖」或「删掉会改走代理」的域名
+# 维护: 上游 geosite cn 已覆盖的条目不在这里重复（2026-10-25 与面板全部 102 个来源
+#       逐条交叉核对过，13.9 万条）；这 4 条都有国内出口（R6S）的直连实测记录。
+#       alimama / snssdk / tanx 别处一个来源都没有，wegame.com.cn 删掉会被 games
+#       集合抢先命中改成代理，其余条目交由 cn 直连。
 payload:
-  - +.wx.qq.com
-  - +.weixin.qq.com
-  - +.cloud.tencent.com
-  - +.qqmusic.qq.com
-  - +.wegame.com.cn
-  - +.dnspod.cn
-  - +.snssdk.com
-  - +.feishu.cn
-  - +.tanx.com
   - +.alimama.com
-  - +.alios.cn
-  - +.bce.baidu.com
-  - +.music.163.com
-  - +.sina.com.cn
-  - +.sinaimg.cn
-  - +.weibo.cn
-  - +.gov.cn
-  - +.edu.cn
-  - +.12306.cn
-  - +.10086.cn
-  - +.189.cn
-  - +.chinatelecom.com.cn
-  - +.icbc.com.cn
-  - +.boc.cn
-  - +.xfyun.cn
-  - +.siliconflow.cn
-  - +.mirrors.tuna.tsinghua.edu.cn
-  - +.mirrors.ustc.edu.cn
-  - +.pypi.tuna.tsinghua.edu.cn
-  - +.test.ustc.edu.cn
-  - +.ntp.org.cn
+  - +.snssdk.com
+  - +.tanx.com
+  - +.wegame.com.cn
