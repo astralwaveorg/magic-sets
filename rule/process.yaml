@@ -1,4 +1,4 @@
-# 名称: local-process
+# 名称: process
 # behavior: classical
 # 条目: 15
 # 说明: 本地传输、同步与远控类进程，保持直连

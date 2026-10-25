@@ -1,0 +1,61 @@
+# 名称: chat-ext
+# behavior: classical
+# 条目: 43
+# 说明: 即时通讯补充域名——blackmatrix7 与 geosite 都没有收录的小众聊天应用，
+#       以及原先混在 social-extra 里的通讯类域名。
+payload:
+  # —— Discord ——
+  - DOMAIN-SUFFIX,discord.com
+  - DOMAIN-SUFFIX,discord.gg
+  - DOMAIN-SUFFIX,discordapp.com
+  - DOMAIN-SUFFIX,discordapp.net
+  - DOMAIN-SUFFIX,discord.media
+  - DOMAIN-SUFFIX,discordcdn.com
+  # —— WhatsApp ——
+  - DOMAIN-SUFFIX,whatsapp.com
+  - DOMAIN-SUFFIX,whatsapp.net
+  # —— Signal ——
+  - DOMAIN-SUFFIX,signal.org
+  - DOMAIN-SUFFIX,signal.art
+  - DOMAIN-SUFFIX,signal.group
+  - DOMAIN-SUFFIX,signal.link
+  - DOMAIN-SUFFIX,signal.me
+  - DOMAIN-SUFFIX,signal.tube
+  # —— LINE ——
+  - DOMAIN-SUFFIX,line.me
+  - DOMAIN-SUFFIX,line-apps.com
+  - DOMAIN-SUFFIX,line-scdn.net
+  - DOMAIN-SUFFIX,line.naver.jp
+  # —— Kakao ——
+  - DOMAIN-SUFFIX,kakao.com
+  - DOMAIN-SUFFIX,kakaocdn.net
+  # —— Facebook Messenger ——
+  - DOMAIN-SUFFIX,messenger.com
+  # —— Viber ——
+  - DOMAIN-SUFFIX,viber.com
+  - DOMAIN-SUFFIX,viber.net
+  - DOMAIN-SUFFIX,viber.me
+  - DOMAIN-SUFFIX,vibercdn.com
+  # —— Threema ——
+  - DOMAIN-SUFFIX,threema.com
+  - DOMAIN-SUFFIX,threema.ch
+  - DOMAIN-SUFFIX,threema.de
+  - DOMAIN-SUFFIX,threema.us
+  # —— Session ——
+  - DOMAIN-SUFFIX,session.org
+  - DOMAIN-SUFFIX,getsession.org
+  - DOMAIN-SUFFIX,session.link
+  - DOMAIN-SUFFIX,session.im
+  # —— SimpleX Chat ——
+  - DOMAIN-SUFFIX,simplex.chat
+  - DOMAIN-SUFFIX,simplex.im
+  # —— Wire ——
+  - DOMAIN-SUFFIX,wire.com
+  - DOMAIN-SUFFIX,wire.gg
+  # —— 会议与协作 ——
+  - DOMAIN-SUFFIX,zoom.us
+  - DOMAIN-SUFFIX,zoom.com
+  - DOMAIN-SUFFIX,zoomcdn.net
+  - DOMAIN-SUFFIX,webex.com
+  - DOMAIN-SUFFIX,slack.com
+  - DOMAIN-SUFFIX,slack-edge.com

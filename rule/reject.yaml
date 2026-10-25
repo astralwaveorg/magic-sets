@@ -1,0 +1,9 @@
+# 名称: reject
+# behavior: classical
+# 条目: 4
+# 说明: 自维护的「拦截」条目——最小广告域名集
+payload:
+  - DOMAIN,ad.doubleclick.net
+  - DOMAIN,googleads.g.doubleclick.net
+  - DOMAIN,pagead2.googlesyndication.com
+  - DOMAIN,adservice.google.com

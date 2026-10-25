@@ -1,14 +1,15 @@
 # 名称: jp
-# behavior: domain
-# 条目: 9
-# 说明: 日本相关域名，走日本线路（韩国的 IP 段走默认代理，单独一条规则）
+# behavior: classical
+# 条目: 10
+# 说明: 日本线路的域名与韩国的固定 IP 段（原先 kr 单独一份，已并入），统一走日本线路
 payload:
-  - +.panel.eoysky.com
-  - +.bot.eoysky.com
-  - +.cookie.astralwave.vip
-  - +.sub.rsshub.in
-  - +.ql.astralwave.vip
-  - +.rsshub.in
-  - +.dilyslyu.com
-  - +.oapi.dnscli.top
-  - +.v2ex.com
+  - DOMAIN-SUFFIX,panel.eoysky.com
+  - DOMAIN-SUFFIX,bot.eoysky.com
+  - DOMAIN-SUFFIX,cookie.astralwave.vip
+  - DOMAIN-SUFFIX,sub.rsshub.in
+  - DOMAIN-SUFFIX,ql.astralwave.vip
+  - DOMAIN-SUFFIX,rsshub.in
+  - DOMAIN-SUFFIX,dilyslyu.com
+  - DOMAIN-SUFFIX,oapi.dnscli.top
+  - DOMAIN-SUFFIX,v2ex.com
+  - IP-CIDR,158.179.167.131/32

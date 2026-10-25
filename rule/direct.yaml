@@ -1,0 +1,10 @@
+# 名称: direct
+# behavior: classical
+# 条目: 5
+# 说明: 自维护的「直连」条目——自建服务域名
+payload:
+  - DOMAIN-SUFFIX,magichub.top
+  - DOMAIN-SUFFIX,jiek.top
+  - DOMAIN-SUFFIX,homehub.stream
+  - DOMAIN-SUFFIX,eoysky.com
+  - DOMAIN-SUFFIX,astralwave.org

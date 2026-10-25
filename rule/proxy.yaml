@@ -1,0 +1,11 @@
+# 名称: proxy
+# behavior: classical
+# 条目: 6
+# 说明: 自维护的「走默认代理」条目——IP 查询服务域名
+payload:
+  - DOMAIN-SUFFIX,myip.com
+  - DOMAIN-SUFFIX,ipip.net
+  - DOMAIN-SUFFIX,ipinfo.io
+  - DOMAIN-SUFFIX,ip-api.com
+  - DOMAIN-SUFFIX,whatismyip.com
+  - DOMAIN-SUFFIX,cdnimg118574.com

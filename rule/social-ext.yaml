@@ -1,0 +1,29 @@
+# 名称: social-ext
+# behavior: classical
+# 条目: 16
+# 说明: 海外社交补充域名——blackmatrix7 与 geosite 都没有收录的小众社区平台。
+payload:
+  # —— Quora ——
+  - DOMAIN-SUFFIX,quora.com
+  # —— Lemmy ——
+  - DOMAIN-SUFFIX,lemmy.world
+  - DOMAIN-SUFFIX,lemmy.ml
+  - DOMAIN-SUFFIX,lemmyonline.com
+  # —— Nextdoor ——
+  - DOMAIN-SUFFIX,nextdoor.com
+  # —— Odnoklassniki ——
+  - DOMAIN-SUFFIX,ok.ru
+  - DOMAIN-SUFFIX,odnoklassniki.ru
+  # —— GETTR ——
+  - DOMAIN-SUFFIX,gettr.com
+  - DOMAIN-SUFFIX,gettr.net
+  - DOMAIN-SUFFIX,gettr.cc
+  - DOMAIN-SUFFIX,gettr.io
+  # —— Minds ——
+  - DOMAIN-SUFFIX,minds.com
+  - DOMAIN-SUFFIX,minds.net
+  # —— MeWe ——
+  - DOMAIN-SUFFIX,mewe.com
+  # —— Gab ——
+  - DOMAIN-SUFFIX,gab.com
+  - DOMAIN-SUFFIX,gab.ai
