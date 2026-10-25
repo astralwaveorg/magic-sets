@@ -1,0 +1,6 @@
+# 名称: microsoft
+# behavior: classical
+# 条目: 1
+# 说明: 自主维护的微软服务域名
+payload:
+  - DOMAIN-SUFFIX,sfdataservice-staging.microsoft.com

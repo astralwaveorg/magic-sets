@@ -1,0 +1,7 @@
+# 名称: us
+# behavior: domain
+# 条目: 2
+# 说明: 自主维护的美国区域域名
+payload:
+  - +.perplexity.ai
+  - +.ohmygpt.com

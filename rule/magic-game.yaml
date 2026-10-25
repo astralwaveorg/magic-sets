@@ -1,0 +1,8 @@
+# 名称: game
+# behavior: classical
+# 条目: 2
+# 说明: Steam 下载 CDN——服务器在境外（Valve 自有段在美国，Akamai / Fastly 亦为境外节点），
+#       走海外游戏线路
+payload:
+  - DOMAIN-SUFFIX,steamcontent.com
+  - DOMAIN-SUFFIX,steamstatic.com

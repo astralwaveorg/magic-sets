@@ -1,0 +1,6 @@
+# 名称: google
+# behavior: classical
+# 条目: 1
+# 说明: 自主维护的谷歌服务域名
+payload:
+  - DOMAIN-SUFFIX,youtube-dubbing.com
