@@ -1,8 +1,0 @@
-# 名称: apple-push
-# behavior: domain
-# 条目: 3
-# 说明: Apple 推送域名
-payload:
-  - +.push.apple.com
-  - +.akadns.net
-  - +.apple.com.edgekey.net

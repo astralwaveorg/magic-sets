@@ -1,9 +1,0 @@
-# 名称: apple-intelligence
-# behavior: domain
-# 条目: 4
-# 说明: Apple Intelligence 域名
-payload:
-  - +.guzzoni.smoot.apple.com
-  - +.apple-relay.apple.com
-  - +.apple-relay.cloudflare.com
-  - +.apple-relay.fastly-edge.com

@@ -18,12 +18,12 @@
 每个文件是一个标准规则集合，文件头注明 behavior、条目数与用途：
 
 ```yaml
-# 名称: ai-overrides
+# 名称: chat-extra
 # behavior: domain
-# 条目: 47
-# 说明: AI 服务补充域名
+# 条目: 43
+# 说明: 即时通讯补充域名
 payload:
-  - +.copilot.microsoft.com
+  - +.example.com
 ```
 
 `behavior` 三种，与 [Stash 官方文档](https://stash.wiki/rules/rule-set) 一致：
@@ -38,12 +38,12 @@ payload:
 
 ```yaml
 rule-providers:
-  ai-overrides:
+  chat-extra:
     type: http
     behavior: domain
     format: yaml
-    path: ./rules/ai-overrides.yaml
-    url: https://raw.githubusercontent.com/astralwaveorg/magic-sets/main/rule/ai-overrides.yaml
+    path: ./rules/chat-extra.yaml
+    url: https://raw.githubusercontent.com/astralwaveorg/magic-sets/main/rule/chat-extra.yaml
     interval: 86400
 ```
 
@@ -84,37 +84,20 @@ http:
 
 | 文件 | behavior | 内容 | 条目 |
 | --- | --- | --- | --- |
-| `rule/ads-minimal.yaml` | `domain` | 域名 | 4 |
-| `rule/ai-overrides.yaml` | `domain` | 域名 | 47 |
-| `rule/apple-intelligence.yaml` | `domain` | 域名 | 4 |
-| `rule/apple-push-ip.yaml` | `ipcidr` | IP 段 | 9 |
-| `rule/apple-push.yaml` | `domain` | 域名 | 3 |
 | `rule/chat-extra.yaml` | `domain` | 域名 | 43 |
-| `rule/claude-extra.yaml` | `domain` | 域名 | 11 |
-| `rule/cn-services.yaml` | `domain` | 域名 | 3 |
-| `rule/connectivity-check.yaml` | `domain` | 域名 | 6 |
-| `rule/dev-extra.yaml` | `domain` | 域名 | 71 |
-| `rule/direct-ports.yaml` | `classical` | 经典规则 | 3 |
-| `rule/dns-direct.yaml` | `domain` | 域名 | 4 |
-| `rule/gemini.yaml` | `domain` | 域名 | 13 |
 | `rule/jp.yaml` | `domain` | 域名 | 9 |
 | `rule/kr.yaml` | `ipcidr` | IP 段 | 1 |
 | `rule/local-process.yaml` | `classical` | 经典规则 | 15 |
-| `rule/lvsp-direct.yaml` | `domain` | 域名 | 7 |
-| `rule/lvsp-ip-check.yaml` | `domain` | 域名 | 6 |
-| `rule/mail-password.yaml` | `domain` | 域名 | 4 |
-| `rule/mirror-accelerate.yaml` | `domain` | 域名 | 2 |
-| `rule/openai-extra.yaml` | `domain` | 域名 | 13 |
-| `rule/payment-finance.yaml` | `domain` | 域名 | 8 |
-| `rule/proxy-domain.yaml` | `domain` | 域名 | 6207 |
-| `rule/proxy.yaml` | `classical` | 经典规则 | 100 |
-| `rule/search.yaml` | `domain` | 域名 | 17 |
-| `rule/self-hosted.yaml` | `domain` | 域名 | 5 |
-| `rule/social-extra.yaml` | `domain` | 域名 | 14 |
 | `rule/social-niche.yaml` | `domain` | 域名 | 16 |
 
-`rule/proxy-domain.yaml` 是「必须走代理」的域名全集，已剔除与现有分流规则重叠的部分 ——
-上游的 Proxy 规则集排在业务规则之前，会把本该走专用线路的域名抢走。
+本仓库只收**上游与第三方都没有收录、需要自己维护**的集合：
+
+- `chat-extra` / `social-niche`：小众聊天应用与社区平台的补充域名
+- `local-process`：本地传输、同步与远控类进程，保持直连
+- `jp` / `kr`：自建服务所在地区的域名与 IP 段
+
+通用规则集（geosite / geoip / blackmatrix7 的分类集合）一律不进本仓库 —— 面板里直接引用
+上游 URL 即可，避免同一份内容存两处、走两套更新。
 
 ## 命名约定
 
@@ -124,14 +107,16 @@ http:
 
 ## 与 MagicPanel 的关系
 
-本仓库以 submodule 形式挂在 MagicPanel 的 `magic-sets/` 目录下：
+本仓库由 MagicPanel 后台的「自主维护」页托管：面板把它 clone 到容器里，在页面上直接浏览、
+编辑、提交、推送。`rule/` 下的文件会按「仓库托管」这一类规则来源同步进面板，内容以仓库为准。
 
-```bash
-git clone --recurse-submodules https://github.com/astralwaveorg/MagicPanel.git
-# 已经 clone 过主仓库时：
-git submodule update --init --recursive
-```
+面板里的规则来源有四种，边界要分清：
 
-面板里的规则集内容目前仍存在数据库里，产物中的 `rule-providers` URL 指向面板自己的
-`/res/rule/<name>` 端点，客户端从面板拉取。要让规则内容以本仓库文件为准，
-还需要在面板侧加一条读取链路的改动。
+| 类型 | 含义 | 内容来源 |
+| --- | --- | --- |
+| 远程 URL | 直接引用上游（geosite、blackmatrix7 等） | 上游 URL，面板定期抓取 |
+| 内联内容 | 直接写在面板里 | 面板数据库，改完保存即刻生效 |
+| 维护仓库 | 由本仓库托管 | `rule/*.yaml`，同步时以仓库为准 |
+
+规则来源改成「远程 URL」或「内联内容」后，它就不再消费本仓库的文件，对应的仓库文件可以删掉；
+反之要把一个集合收回本仓库，就在仓库里放好文件、在面板上把来源改成「维护仓库」并填上仓库路径。

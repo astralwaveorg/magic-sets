@@ -1,9 +1,0 @@
-# 名称: ads-minimal
-# behavior: domain
-# 条目: 4
-# 说明: 最小广告拦截集
-payload:
-  - ad.doubleclick.net
-  - googleads.g.doubleclick.net
-  - pagead2.googlesyndication.com
-  - adservice.google.com
