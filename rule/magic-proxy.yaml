@@ -9,3 +9,14 @@ payload:
   - DOMAIN-SUFFIX,ip-api.com
   - DOMAIN-SUFFIX,whatismyip.com
   - DOMAIN-SUFFIX,cdnimg118574.com
+  - DOMAIN-KEYWORD,greasyfork
+  - DOMAIN-KEYWORD,sleazyfork
+  - DOMAIN-KEYWORD,nodeseek
+  - DOMAIN-KEYWORD,longbridge
+  - DOMAIN-KEYWORD,shadcn
+  - DOMAIN-KEYWORD,recharts
+  - DOMAIN-KEYWORD,ipv6boy
+  - DOMAIN-KEYWORD,v2ex
+  - DOMAIN-KEYWORD,discord
+  - DOMAIN-KEYWORD,wmsxwd
+  - DOMAIN-KEYWORD,missav
