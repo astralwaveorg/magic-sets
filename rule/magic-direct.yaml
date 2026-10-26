@@ -3,13 +3,16 @@
 # 条目: 10
 # 说明: 自维护的「直连」条目——自建服务域名、国内直连站点与必须直连的广告 SDK 域名
 payload:
+  - DOMAIN,magichub.top
+  - DOMAIN,homehub.stream
+  - DOMAIN,cn.bing.com
+  - DOMAIN-SUFFIX,fnos.net
   - DOMAIN-SUFFIX,magichub.top
-  - DOMAIN-SUFFIX,jiek.top
   - DOMAIN-SUFFIX,homehub.stream
   - DOMAIN-SUFFIX,eoysky.com
+  - DOMAIN-SUFFIX,jiek.top
   - DOMAIN-SUFFIX,astralwave.org
   - DOMAIN-SUFFIX,jianpian.tv
-  - DOMAIN,cn.bing.com
   - DOMAIN-SUFFIX,alimama.com
   - DOMAIN-SUFFIX,snssdk.com
   - DOMAIN-SUFFIX,tanx.com
