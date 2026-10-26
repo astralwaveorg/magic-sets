@@ -89,7 +89,7 @@ http:
 | 文件 | 说明 | 条目 | 规则指向 |
 | --- | --- | --- | --- |
 | `rule/magic-proxy.yaml` | 自维护的「走默认代理」条目（IP 查询、云服务、自建、金融） | 16 | `🚀 默认代理` |
-| `rule/magic-direct.yaml` | 自维护的「直连」条目 | 10 | `DIRECT` |
+| `rule/magic-direct.yaml` | 自维护的「直连」条目（自建服务、国内站点、地图与车企服务） | 18 | `DIRECT` |
 | `rule/magic-reject.yaml` | 自维护的「拦截」条目 | 4 | `REJECT` / `🛑 广告过滤` |
 | `rule/magic-jp.yaml` | 日本线路域名 + 韩国的固定 IP 段 | 10 | `🇯🇵日本` |
 | `rule/magic-process.yaml` | 本地传输、同步与远控类进程 | 15 | `DIRECT` |
