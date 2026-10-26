@@ -1,6 +1,6 @@
 # 名称: direct
 # behavior: classical
-# 条目: 10
+# 条目: 18
 # 说明: 自维护的「直连」条目——自建服务域名、国内直连站点与必须直连的广告 SDK 域名
 payload:
   - DOMAIN,cn.bing.com
@@ -14,3 +14,10 @@ payload:
   - DOMAIN-SUFFIX,alimama.com
   - DOMAIN-SUFFIX,snssdk.com
   - DOMAIN-SUFFIX,tanx.com
+  - DOMAIN-SUFFIX,byd.auto
+  - DOMAIN-SUFFIX,byd.com
+  - DOMAIN-SUFFIX,byd.com.cn
+  - DOMAIN-SUFFIX,byd.cn
+  - DOMAIN-SUFFIX,scflash.com
+  - DOMAIN-SUFFIX,amap.com
+  - DOMAIN-SUFFIX,autonavi.com
