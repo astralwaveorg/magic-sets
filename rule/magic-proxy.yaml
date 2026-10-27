@@ -22,3 +22,5 @@ payload:
   - DOMAIN,web.dev
   - DOMAIN-SUFFIX,warp.dev
   - DOMAIN-SUFFIX,rudderstack.com
+  - DOMAIN-SUFFIX,lrclib.net
+  - DOMAIN-SUFFIX,workers.dev
