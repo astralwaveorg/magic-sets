@@ -1,19 +1,8 @@
 # 名称: chat
 # behavior: classical
-# 条目: 43
-# 说明: 即时通讯补充域名——blackmatrix7 与 geosite 都没有收录的小众聊天应用，
-#       以及原先混在 social-extra 里的通讯类域名。
+# 条目: 29
+# 说明: 上游专集（Discord/WhatsApp/LINE/Kakao/Slack）已覆盖的 17 条移除；zoom.us 误分类已归位
 payload:
-  # —— Discord ——
-  - DOMAIN-SUFFIX,discord.com
-  - DOMAIN-SUFFIX,discord.gg
-  - DOMAIN-SUFFIX,discordapp.com
-  - DOMAIN-SUFFIX,discordapp.net
-  - DOMAIN-SUFFIX,discord.media
-  - DOMAIN-SUFFIX,discordcdn.com
-  # —— WhatsApp ——
-  - DOMAIN-SUFFIX,whatsapp.com
-  - DOMAIN-SUFFIX,whatsapp.net
   # —— Signal ——
   - DOMAIN-SUFFIX,signal.org
   - DOMAIN-SUFFIX,signal.art
@@ -21,14 +10,6 @@ payload:
   - DOMAIN-SUFFIX,signal.link
   - DOMAIN-SUFFIX,signal.me
   - DOMAIN-SUFFIX,signal.tube
-  # —— LINE ——
-  - DOMAIN-SUFFIX,line.me
-  - DOMAIN-SUFFIX,line-apps.com
-  - DOMAIN-SUFFIX,line-scdn.net
-  - DOMAIN-SUFFIX,line.naver.jp
-  # —— Kakao ——
-  - DOMAIN-SUFFIX,kakao.com
-  - DOMAIN-SUFFIX,kakaocdn.net
   # —— Facebook Messenger ——
   - DOMAIN-SUFFIX,messenger.com
   # —— Viber ——
@@ -53,9 +34,9 @@ payload:
   - DOMAIN-SUFFIX,wire.com
   - DOMAIN-SUFFIX,wire.gg
   # —— 会议与协作 ——
-  - DOMAIN-SUFFIX,zoom.us
   - DOMAIN-SUFFIX,zoom.com
   - DOMAIN-SUFFIX,zoomcdn.net
   - DOMAIN-SUFFIX,webex.com
-  - DOMAIN-SUFFIX,slack.com
-  - DOMAIN-SUFFIX,slack-edge.com
+  - DOMAIN-SUFFIX,element.io
+  - DOMAIN-SUFFIX,matrix.org
+  - DOMAIN-SUFFIX,riot.im

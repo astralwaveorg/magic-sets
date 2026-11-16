@@ -1,6 +1,6 @@
 # magic-sets
 
-自维护的规则与脚本集合，供 MagicPanel 下发，也供 Stash / Mihomo 客户端直接订阅。
+自维护的规则集合，供 MagicPanel 下发，也供 Stash / Mihomo 客户端直接订阅。
 
 仓库只放**自己维护**的内容。规模大、更新频繁的通用规则集（geosite / geoip 等）不在这里，
 它们由客户端从上游项目拉取，本仓库只维护增量与私有部分。
@@ -9,9 +9,10 @@
 
 | 目录 | 内容 | 用途 |
 | --- | --- | --- |
-| `rule/` | 规则集合 | 域名、IP 段、经典规则的批量定义，对应 `rule-providers` |
-| `script/` | Stash JavaScript 脚本 | 需要逻辑判断的请求改写，对应 `script-providers` + `script` |
-| `rewrite/` | Stash HTTP 重写片段 | URL 重写、请求头增删、强制 HTTP 引擎，对应 `http` 段 |
+| `rule/` | 规则集合 | 域名、IP 段、进程名等经典规则的批量定义，对应 `rule-providers` |
+
+`script/` 与 `rewrite/` 已于 2026-11-17 移除：这些 Stash 专属片段（UA 改写、请求头去跟踪、
+强制 HTTP 引擎）默认停用且面板从未引用，保留只会增加维护面；需要时从 git 历史找回。
 
 ## rule/
 
@@ -21,8 +22,8 @@
 ```yaml
 # 名称: jp
 # behavior: classical
-# 条目: 10
-# 说明: 日本线路的域名与韩国的固定 IP 段
+# 条目: 8
+# 说明: 日本线路的域名
 payload:
   - DOMAIN-SUFFIX,rsshub.in
   - IP-CIDR,158.179.167.131/32
@@ -41,73 +42,48 @@ payload:
 注意 `DOMAIN` 与 `DOMAIN-SUFFIX` 的区别：原来 `domain` 行为里不带 `+.` 的是精确匹配，
 换成 `classical` 时要写成 `DOMAIN,`，写成 `DOMAIN-SUFFIX,` 会把整个域和子域都算进去。
 
-引用方式：
+## 2026-11-17 审计与瘦身
 
-```yaml
-rule-providers:
-  magic-jp:
-    type: http
-    behavior: classical
-    format: yaml
-    path: ./rules/magic-jp.yaml
-    url: https://raw.githubusercontent.com/astralwaveorg/magic-sets/main/rule/magic-jp.yaml
-    interval: 86400
-```
+按产物规则顺序做「首个命中」仿真，把被更靠前规则截杀的死条目全部移除：
 
-## script/ 与 rewrite/
+- `magic-chat`：Discord×6、WhatsApp×2、LINE×4、Kakao×2、Slack×2 被
+  blackmatrix7 同目标专集覆盖，`zoom.us` 误分类（被 `magic-dev` 截走）；补充
+  Element / Matrix 家族 3 条。43 → 29
+- `magic-dev`：sentry / huggingface / datadoghq 被 `global-ai` 覆盖（AI 组），
+  `zoom.us` 归位到即时通讯。34 → 30
+- `magic-jp`：panel/bot.eoysky.com 被 `magic-direct` 的 eoysky.com 后缀直连
+  （自建域名直连更安全），死条目移除。10 → 8
+- `magic-adult`：pornhub.com 已由 `proxy-bm7` 覆盖（同目标）。9 → 8
+- `magic-proxy`：补充 ip.sb / ifconfig.me / icanhazip.com（IP 查询，配合面板
+  解锁看板与测速脚本）。18 → 21
 
-都是 Stash 的功能片段，**默认停用**，按需启用。
-
-`script/` 每个文件包含两段：`script-providers` 声明脚本体，`script` 声明它作用在哪些请求上：
-
-```yaml
-script-providers:
-  ua-mobile:
-    interval: 86400
-    payload: |
-      $request.headers["User-Agent"] = "...";
-      $done();
-
-script:
-  - type: request
-    name: ua-mobile
-    match: "^https?://"
-```
-
-`rewrite/` 每个文件是 `http` 段的一个片段：
-
-```yaml
-http:
-  url-rewrite:
-    - '^https?://[a-z0-9-]+\.doubleclick\.net/.* - reject'
-```
-
-`http` 段的 URL 重写与请求头改写依赖 HTTP 引擎，HTTPS 请求需要设备信任 Stash 的 CA 证书。
+删除默认停用且零引用的 `script/` 与 `rewrite/` 目录（6 个 Stash 专属片段）。
 
 ## 规则清单
 
 | 文件 | 说明 | 条目 | 规则指向 |
 | --- | --- | --- | --- |
-| `rule/magic-proxy.yaml` | 自维护的「走默认代理」条目（IP 查询、云服务、自建、金融） | 16 | `🚀 默认代理` |
-| `rule/magic-direct.yaml` | 自维护的「直连」条目（自建服务、国内站点、地图与车企服务） | 18 | `DIRECT` |
-| `rule/magic-reject.yaml` | 自维护的「拦截」条目 | 4 | `REJECT` / `🛑 广告过滤` |
-| `rule/magic-jp.yaml` | 日本线路域名 + 韩国的固定 IP 段 | 10 | `🇯🇵日本` |
+| `rule/magic-proxy.yaml` | IP 查询、云服务、自建与金融站点 | 21 | `🚀 默认代理` |
+| `rule/magic-direct.yaml` | 自建服务、国内直连站点与广告 SDK | 19 | `DIRECT` |
+| `rule/magic-reject.yaml` | 最小广告域名集 | 4 | `REJECT` / `🛑 广告过滤` |
+| `rule/magic-jp.yaml` | 日本线路域名 + 韩国固定 IP 段 | 8 | `🇯🇵日本` |
 | `rule/magic-process.yaml` | 本地传输、同步与远控类进程 | 15 | `DIRECT` |
-| `rule/magic-chat.yaml` | 即时通讯补充域名 | 43 | `💬 即时通讯` |
-| `rule/magic-social.yaml` | 海外社交补充域名 | 16 | `👥 海外社交` |
-| `rule/magic-game.yaml` | Steam 下载 CDN（服务器在境外） | 2 | `🎮 海外游戏` |
-| `rule/magic-us.yaml` | 美国区域域名 | 2 | `🇺🇸美国` |
+| `rule/magic-chat.yaml` | 小众聊天应用补充（Element/Matrix 等） | 29 | `💬 即时通讯` |
+| `rule/magic-social.yaml` | 小众社区平台补充 | 16 | `👥 海外社交` |
+| `rule/magic-game.yaml` | Steam 下载 CDN | 2 | `🎮 海外游戏` |
+| `rule/magic-us.yaml` | 美国区域域名 | 2 | `🧠 人工智能` |
 | `rule/magic-google.yaml` | 谷歌服务补充域名 | 1 | `🔍 谷歌服务` |
 | `rule/magic-microsoft.yaml` | 微软服务补充域名 | 1 | `Ⓜ️ 微软服务` |
-| `rule/magic-adult.yaml` | 成人内容站点域名 | 9 | `🚀 默认代理` |
-| `rule/magic-dev.yaml` | 开发者平台、工具与包源域名 | 34 | `🚀 默认代理` |
+| `rule/magic-adult.yaml` | 成人内容站点域名 | 8 | `🚀 默认代理` |
+| `rule/magic-dev.yaml` | 开发者平台、工具与包源域名 | 30 | `🚀 默认代理` |
 
 **一个目标组一个文件**：想加一条「这个域名走默认代理」「这个域名直连」「这个域名拦截」，
 加到对应文件里就行，不必为每个服务单独建集合。`magic-proxy` / `magic-direct` / `magic-reject`
 是三种通用意图的固定落点，其余按分组各一个文件。
 
 通用规则集（geosite / geoip / blackmatrix7 的分类集合）一律不进本仓库 —— 面板里直接引用
-上游 URL 即可，避免同一份内容存两处、走两套更新。
+上游 URL 即可，避免同一份内容存两处、走两套更新。新增条目前先按产物顺序确认它没有被
+更靠前的规则截杀（死条目等于维护噪声）。
 
 ## 命名约定
 
